@@ -59,7 +59,7 @@ public function circleAround(float $param){
             if($value==0){
 
             }else{
-            $value=round($value,2);
+            $value=number_format($value, 2, '.', '');
             echo ''.$string. ''.$value. '<br>';}
         }
     }
