@@ -1,5 +1,0 @@
-var DISQUSWIDGETS;
-
-if (typeof DISQUSWIDGETS != 'undefined') {
-    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"No Comment","multiple":"{num} Comments","one":"1 Comments"}},"counts":[{"id":"https:\/\/www.mahirkoding.com\/cara-ganti-versi-php-di-xampp\/","comments":2},{"id":"https:\/\/www.mahirkoding.com\/konfigurasi-ip-address-di-debian\/","comments":0},{"id":"https:\/\/www.mahirkoding.com\/struktur-data-binary-search-tree-bst\/","comments":3},{"id":"https:\/\/www.mahirkoding.com\/operasi-file-dalam-bahasa-c\/","comments":17}]});
-}
