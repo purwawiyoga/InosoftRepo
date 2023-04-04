@@ -3,10 +3,10 @@
 /* membuat class 'bangun datar' terdapat (lingkaran, persegi dan persegi panjang)
 
 *function
-1. area             : compute & show 'area of figure' 
-2. circumference    : compute & show ' circum of figure' 
-3. enlarge(float scale): compute & show enlarge with scale 
-4. shrink(float scale): compute & show shrinked with scale  
+1. area             : compute 'area of figure' 
+2. circumference    : compute ' circum of figure' 
+3. enlarge(float scale): compute  enlarge with scale 
+4. shrink(float scale): compute shrinked with scale  
 
 *attributes
 1. circle   = radius
@@ -17,93 +17,86 @@ buat class descriptor dengan fungsi
 describe ($figure) untuk menampilkan text
 "Bangun datar ini adalah (Lingkaran/Persegi/Persegi Panjang) yang memiliki luas ($luas) dan keliling($circumference)"
 */
-class Circle{
-    
-    public function __construct(float $radius){
-       $this -> radius=$radius;
-    } 
-    private float $radius;
-    public string $object = "Lingkaran";
 
-    public function enlarge(float $scale){
-        $this->radius*=$scale;
-    }
-    public function shrink(float $scale){
-        $this->radius/=$scale;
-    }
+class BangunDatar{
+
+    public function __construct(float $a=0, float $b=0){
+        $this -> b=$b;
+        $this -> a=$a;
+     }  
+     public function enlarge(float $scale){
+         $this->b*=$scale;
+         $this->a*=$scale;
+     }
+     public function shrink(float $scale){
+         $this->b/=$scale;
+         $this->b*=$scale;
+     }  
+}
+class Circle extends BangunDatar{
+    
+    public string $nameOfObject = "Lingkaran";
+
     public function area(){
-        return 3.14*$this->radius*$this->radius;
+        $result=3.14*$this->a**2;
+        return $result;
     }
     public function circumference(){
-        return 3.14*($this->radius*2);
+        $result = 3.14*($this->a*2);
+        return $result;
+    }
+    public function getJarijari(){
+        echo $this->a;
     }
     
 }
-class Square{
-    
-    public function __construct(float $side){
-       $this -> side=$side;
-    } 
-    private float $side;
-    public string $object = "Persegi";
+class Square extends BangunDatar{
+    public string $nameOfObject = "Persegi";
 
-    public function enlarge(float $scale){
-        $this->side*=$scale;
+    function area(){
+        $result=$this->a**2;
+        return $result;
     }
-    public function shrink(float $scale){
-        $this->side/=$scale;
+    function circumference(){
+        $result=$this->a*4;
+        return $result;
+    } 
+    public function getSisi(){
+        echo $this->a;
     }
-    public function area(){
-        return $this->side**2;
-    }
-    public function circumference(){
-        return $this->side*4;
-    }
-    
 }
 
-class Rectangle{
-    
-    public function __construct(float $length, float $width){
-       $this -> length=$length;
-       $this -> width=$width;
-    } 
-    public string $object = "Persegi Panjang";
-    private float $length;
-    private float $width;
+class Rectangle extends BangunDatar{
 
-    public function enlarge(float $scale){
-        $this->length*=$scale;
-        $this->width*=$scale;
-    }
-    public function shrink(float $scale){
-        $this->length/=$scale;
-        $this->width/=$scale;
-
-    }
+    public string $nameOfObject = "Persegi Panjang";
     public function area(){
-        return $this->length*$this->width;
+        $result = $this->a*$this->b;
+        return $result;
     }
     public function circumference(){
-        return ($this->length+$this->width)*2;
-    }    
+        $result =  ($this->a+$this->b)*2;
+        return $result;
+    }
+    public function getPanjang(){
+        echo $this->a;
+    }
+    public function getLebar(){
+        echo $this->b;
+    }
+        
 }
+
 
 class descriptor {
-    private object $object;
-    public function __construct(object $object){
-        $this->object=$object;
+    public function __construct(object $nameOfObject){
+        $this->nameOfObject=$nameOfObject;
         $this->describe();
     }
     public function describe(){
-    echo "Bangun datar ini adalah " .$this->object->object. " yang memiliki luas " .$this->object->area(). " dan keliling ".$this->object->circumference(). "\n";
-    }
-    
-    public function __destruct(){
-        
+    echo "Bangun datar ini adalah " .$this->nameOfObject->nameOfObject. " yang memiliki luas " .$this->nameOfObject->area(). " dan keliling ".$this->nameOfObject->circumference(). "\n";
     }
 }
 
-new descriptor(new Circle(7));
-new descriptor(new Square(8));
-new descriptor(New Rectangle(4,8));
+new descriptor(new Circle(2));
+new descriptor(new Square(2));
+new descriptor(New Rectangle(2,1));
