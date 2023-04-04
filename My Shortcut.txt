@@ -23,3 +23,19 @@ git pull`
 git log`
 git clone  https://github.com/linuxsecorg/linuxsecorg.git`
 git --help`
+
+laravel
+
+php artisan make:controller namakontroler 
+php artisan make:controller namakontroler --resource //untuk crud 
+php artisan make:model namamodel
+php artisan make:migration create_user_table
+php artisan make:migration create_user_table --create_users
+php artisan make:migration add_votes_to_users_table --table=users
+php artisan migrate
+//seeder 
+php artisan make:seeder usertableseeder
+//command run seeder
+php artisan db:seed 
+php artisan db:seed --class=usertableseeder
+
