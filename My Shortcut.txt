@@ -24,6 +24,14 @@ git log`
 git clone  https://github.com/linuxsecorg/linuxsecorg.git`
 git --help`
 
+//add username
+git config --global user.name "your_username"
+
+//add email
+git config --global user.email "your_email_address@example.com"
+
+//check configuration
+git config --global --list
 laravel
 
 php artisan make:controller namakontroler 
@@ -38,4 +46,17 @@ php artisan make:seeder usertableseeder
 //command run seeder
 php artisan db:seed 
 php artisan db:seed --class=usertableseeder
+
+
+cd AsignmentProject_Siakad
+composer require jenssegers/mongodb
+
+Route::get('samples', 'SampleController@index');
+Route::get('samples/create', 'SampleController@create');
+Route::post('samples', 'SampleController@store');
+Route::get('samples/{sample}', 'SampleController@show');
+Route::get('samples/{sample}/edit', 'SampleController@edit');
+Route::patch('samples/{sample}', 'SampleController@update');
+Route::put('samples/{sample}', 'SampleController@replace'); // Add replace manually
+Route::delete('samples/{sample}', 'SampleController@destroy');
 
